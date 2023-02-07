@@ -11,10 +11,8 @@
 
 <body>
       <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            <a class="active" href="/">Home</a>
+            <a href="/upload">Upload File</a>
       </div>
 
       <div style="padding-left:16px">
@@ -39,14 +37,35 @@
                                           <%= dataUser[i].lastName %>
                                     </td>
                                     <td>
-                                          <button><a target="blank"
-                                                      href="/details/user/<%= dataUser[i].id %>">Details</a></button>
-                                          <button>Edit</button>
-                                          <button>Delete</button>
+                                          <button>
+                                                <a target="blank" href="/details/user/<%= dataUser[i].id %>">
+                                                      Details
+                                                </a>
+                                          </button>
+                                          <form action="/edit-user/<%= dataUser[i].id %>" method="GET">
+                                                <button type="submit">Edit</button>
+                                          </form>
+                                          <form action="/delete-user" method="POST">
+                                                <input name="userId" value="<%= dataUser[i].id %>" type="text" hidden>
+                                                <button type="submit">Delete</button>
+                                          </form>
                                     </td>
                               </tr>
                               <% } %>
             </table>
+            <form action="create-new-user" method="POST">
+                  <b>Create new user</b><br>
+                  <label for="firstName">First name:</label><br>
+                  <input type="text" name="firstName" value="John"><br>
+                  <label for="lastName">Last name:</label><br>
+                  <input type="text" name="lastName" value="Doe"><br>
+                  <label for="email">Email:</label><br>
+                  <input type="email" name="email" value="John"><br>
+                  <label for="address">Address</label><br>
+                  <input type="text" name="address" value="Doe"><br>
+                  <br>
+                  <input type="submit" value="Submit" />
+            </form>
       </div>
 </body>
 

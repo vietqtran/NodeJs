@@ -50,3 +50,13 @@ td {
 tr:hover {
       background-color: coral;
 }
+
+input {
+      padding: 5px;
+      margin-bottom: 20px;
+}
+
+form {
+      width: 100%;
+      text-align: center;
+}
