@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/css/style.css">
+      <title>Document</title>
+</head>
+
+<body>
+      <table>
+            <tr>
+                  <th>ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Manage</th>
+            </tr>
+            <% for(let i=0; i < details.length; i++) { %>
+                  <tr>
+                        <td>
+                              <%= details[i].id %>
+                        </td>
+                        <td>
+                              <%= details[i].firstName %>
+                        </td>
+                        <td>
+                              <%= details[i].lastName %>
+                        </td>
+                        <td>
+                              <button><a target="blank" href="/details/user/<%= details[i].id %>">Details</a></button>
+                              <button><a target="blank"
+                                          href="/details/user/address/<%= details[i].address %>">Address</a></button>
+                              <button>Edit</button>
+                              <button>Delete</button>
+                        </td>
+                  </tr>
+                  <% } %>
+      </table>
+</body>
+
+</html>
